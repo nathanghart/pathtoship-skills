@@ -10,6 +10,8 @@ The MCP server gives your assistant the *ability* to run a check. These files gi
 |---|---|---|
 | `chat/CHAT-INSTRUCTIONS.md` | Claude.ai (Projects) · ChatGPT (Projects / custom GPT) | Paste into the project's instructions after adding the PathToShip connector |
 | `skills/pathtoship-readiness/SKILL.md` | Claude Code · Codex · any agent that reads `SKILL.md` | `npx skills add nathanghart/pathtoship-skills --skill pathtoship-readiness`, or copy into `.claude/skills/pathtoship-readiness/` |
+| `skills/pathtoship-launch-record/SKILL.md` | Optional add-on | Keeps `docs/launch-readiness.md` — which checks ran on which commit, what was found, fixed, or accepted, plus the operational items no scanner sees. `npx skills add nathanghart/pathtoship-skills --skill pathtoship-launch-record` |
+| `skills/pathtoship-badge/SKILL.md` | Optional add-on | Adds the live readiness badge to the README/site once a scan clears the ship bar. `npx skills add nathanghart/pathtoship-skills --skill pathtoship-badge` |
 | `rules/CLAUDE.md.snippet` | Claude Code (`CLAUDE.md`), Codex (`AGENTS.md`) | Append to the file |
 | `rules/pathtoship.mdc` | Cursor | Copy into `.cursor/rules/` |
 
