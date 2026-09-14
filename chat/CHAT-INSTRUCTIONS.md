@@ -15,7 +15,7 @@ Run `start_scan` on the app's GitHub repository when the user:
 - asks whether the app is "ready", "safe", "secure", or "good enough";
 - has connected a repository and has not been checked in the last few days of changes.
 
-If you do not know the repository URL, ask for it once ("What's the GitHub repository your builder syncs to?"). If the repository is private and the tool returns `INSTALL_REQUIRED`, give the user the `install_url`, tell them to click **Install** for that repository, then run `start_scan` again.
+If you do not know the repository URL, ask for it once ("What's the GitHub repository your builder syncs to?"). If the tool returns `INSTALL_REQUIRED`, give the user the `install_url`, tell them to click **Install** for that repository, and **wait for them to say it's done** before running `start_scan` again — never scan some other repository instead.
 
 ## The loop
 

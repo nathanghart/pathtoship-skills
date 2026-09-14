@@ -19,7 +19,7 @@ The MCP server gives your assistant the *ability* to run a check. These files gi
 
 **Claude.ai** (Pro/Max): Settings → Connectors → Add custom connector → URL `https://pathtoship.com/api/mcp`.
 **ChatGPT** (Plus/Pro/Business): Settings → Apps & Connectors → Developer Mode → Create → same URL.
-**Claude Code:** `claude mcp add --transport http pathtoship https://pathtoship.com/api/mcp --header "Authorization: Bearer <your API key>"`
+**Claude Code** (run on the machine where Claude Code runs — not in a remote/cloud session; on a phone use the Claude.ai connector): `claude mcp add --transport http pathtoship https://pathtoship.com/api/mcp --header "Authorization: Bearer <your API key>"`
 **Cursor:** `.cursor/mcp.json` → `{ "mcpServers": { "pathtoship": { "url": "https://pathtoship.com/api/mcp", "headers": { "Authorization": "Bearer <your API key>" } } } }`
 
 During the pilot, credentials (a connector URL or an API key) come from us. Self-service sign-up follows.
