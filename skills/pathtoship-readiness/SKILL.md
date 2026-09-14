@@ -13,7 +13,7 @@ Before deploying, opening a public URL, adding logins / payments / uploads, or h
 
 ## Procedure
 
-1. Make sure the work is committed and pushed (the scan reads GitHub). If `start_scan` returns `INSTALL_REQUIRED`, show the user the `install_url`, ask them to install PathToShip for that repository, and **stop until they confirm** — do not scan a different repository instead, and do not retry on your own.
+1. Make sure the work is committed and pushed (the scan reads GitHub). If `start_scan` returns `INSTALL_REQUIRED`, show the user the `install_url`, ask them to install PathToShip for that repository, and **stop until they confirm** — do not scan a different repository instead, and do not retry on your own. When they say it is done, or if `INSTALL_REQUIRED` comes back again, call `check_connection` with the repository URL: it reports whether the installation is linked and gives the exact `link_url`/`install_url` to finish.
 2. `start_scan` with the repository URL. Read `score`, `verdict`, `usage`.
 3. `get_score` — report score vs. ship bar, verdict, weakest dimension, and the `consequence` line (cost at 10x users, migration complexity).
 4. `get_findings` with `severity_min: "high"`, `limit: 10`. Summarize the top 3; do not dump the list.

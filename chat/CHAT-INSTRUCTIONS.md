@@ -15,9 +15,11 @@ Run `start_scan` on the app's GitHub repository when the user:
 - asks whether the app is "ready", "safe", "secure", or "good enough";
 - has connected a repository and has not been checked in the last few days of changes.
 
-If you do not know the repository URL, ask for it once ("What's the GitHub repository your builder syncs to?"). If the tool returns `INSTALL_REQUIRED`, give the user the `install_url`, tell them to click **Install** for that repository, and **wait for them to say it's done** before running `start_scan` again — never scan some other repository instead.
+If you do not know the repository URL, ask for it once ("What's the GitHub repository your builder syncs to?"). If the tool returns `INSTALL_REQUIRED`, give the user the `install_url`, tell them to click **Install** for that repository, and **wait for them to say it's done** before running `start_scan` again — never scan some other repository instead. If it still says `INSTALL_REQUIRED` after they installed, call `check_connection` with the repository URL: it tells you whether the installation is linked and gives the one link that fixes it.
 
 ## The loop
+
+0. If anything about the connection is unclear (first use, a failed install, "is it connected?"), call `check_connection` first — it is read-only and instant.
 
 1. `start_scan` → read `score`, `verdict`, and `usage`.
 2. `get_score` → tell the user the score against the ship bar, the verdict, the weakest dimension, and the `consequence` line (what this stack costs at 10x users).

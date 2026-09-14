@@ -26,7 +26,7 @@ During the pilot, credentials (a connector URL or an API key) come from us. Self
 
 ## The tools
 
-`start_scan` · `get_score` · `get_findings` · `get_finding_detail` · `verify_fix` · `get_scan_status`
+`start_scan` · `get_score` · `get_findings` · `get_finding_detail` · `verify_fix` · `get_scan_status` · `check_connection`
 
 ## Privacy
 

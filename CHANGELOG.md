@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.0 — 2026-09-14
+
+`check_connection` tool: instructions now say to call it when `INSTALL_REQUIRED` recurs or the connection is unclear.
+
 ## 0.2.1 — 2026-09-14
 
 On `INSTALL_REQUIRED`, hand over the install link and stop (never scan a different repository instead). Connect guide: `claude mcp add` runs on the local machine, not a remote session.
