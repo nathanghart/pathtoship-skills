@@ -36,7 +36,6 @@
         "defaultPrompt": [
           "Is my app ready to launch? https://github.com/me/my-app",
           "What are the high severity findings?",
-          "Explain the destructive route finding and how to fix it for my stack.",
           "I pushed the fix and synced — did that resolve it?"
         ],
         "brandColor": "#E3A94C",

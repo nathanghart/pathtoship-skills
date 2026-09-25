@@ -26,3 +26,32 @@ To test locally:
    pointing at this folder, restart the ChatGPT desktop app, and install from
    your local source.
 4. **Remove both before building the submission archive.**
+
+
+## Packaging
+
+`@plugin-creator` nests the package under a folder named after the plugin:
+
+```
+pathtoship-0.2.1.zip
+└── pathtoship/
+    ├── plugin.json
+    ├── .app.json          ← local only, strip before submitting
+    └── skills/<name>/SKILL.md
+```
+
+Match that shape rather than archiving the contents flat — an earlier draft of
+these notes said to put `plugin.json` at the archive root, which is not what the
+sanctioned tool produces.
+
+```bash
+# from the parent of the package folder
+zip -qr pathtoship-<version>.zip pathtoship -x '*/.git/*' '*/.app.json'
+```
+
+`.tar.gz`, `.tgz` and `.zip` are all accepted.
+
+### Known interface limits
+
+- **`defaultPrompt` takes at most three entries.** The build drops extras
+  silently, so decide which three rather than letting it choose.
