@@ -1,0 +1,37 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "pathtoship",
+  "version": "0.2.1",
+  "description": "Production-readiness checks for AI-built apps: scan the repository your builder syncs to, fix what would break, and verify the fix landed.",
+  "author": {
+    "name": "Carquinez Holdings LLC",
+    "url": "https://pathtoship.com"
+  },
+  "homepage": "https://pathtoship.com/mcp",
+  "repository": "https://github.com/nathanghart/pathtoship-skills",
+  "license": "MIT",
+  "keywords": ["readiness", "security", "code-review", "supabase", "nextjs", "lovable", "bolt", "replit"],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "PathToShip",
+        "shortDescription": "Find what breaks your AI-built app — before your users do.",
+        "longDescription": "PathToShip reviews the GitHub repository your builder syncs to and tells you what would break if you launched it: API routes that never check who is calling, secrets on the client side of the boundary, Supabase tables created without Row Level Security, dependencies with known exploits, and the scalability and cost patterns that only hurt once you have users. You get a 0-100 readiness score, a ship/not-ready verdict, and the file and line for each finding. Fix it, sync, and verify_fix confirms what actually got resolved. Every tool is read-only.",
+        "developerName": "Carquinez Holdings LLC",
+        "capabilities": ["Read"],
+        "websiteURL": "https://pathtoship.com",
+        "privacyPolicyURL": "https://pathtoship.com/privacy",
+        "termsOfServiceURL": "https://pathtoship.com/terms",
+        "defaultPrompt": [
+          "Is my app ready to launch? https://github.com/me/my-app",
+          "What are the high severity findings?",
+          "Explain the destructive route finding and how to fix it for my stack.",
+          "I pushed the fix and synced — did that resolve it?"
+        ],
+        "brandColor": "#E3A94C",
+        "composerIcon": "./assets/icon.png",
+        "logo": "./assets/icon.png"
+      }
+    }
+  }
+}
