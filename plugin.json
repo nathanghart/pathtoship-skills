@@ -10,15 +10,26 @@
   "homepage": "https://pathtoship.com/mcp",
   "repository": "https://github.com/nathanghart/pathtoship-skills",
   "license": "MIT",
-  "keywords": ["readiness", "security", "code-review", "supabase", "nextjs", "lovable", "bolt", "replit"],
+  "keywords": [
+    "readiness",
+    "security",
+    "code-review",
+    "supabase",
+    "nextjs",
+    "lovable",
+    "bolt",
+    "replit"
+  ],
   "extensions": {
     "com.openai": {
       "interface": {
         "displayName": "PathToShip",
-        "shortDescription": "Find what breaks your AI-built app — before your users do.",
+        "shortDescription": "Find what breaks your AI-built app, before your users do.",
         "longDescription": "PathToShip reviews the GitHub repository your builder syncs to and tells you what would break if you launched it: API routes that never check who is calling, secrets on the client side of the boundary, Supabase tables created without Row Level Security, dependencies with known exploits, and the scalability and cost patterns that only hurt once you have users. You get a 0-100 readiness score, a ship/not-ready verdict, and the file and line for each finding. Fix it, sync, and verify_fix confirms what actually got resolved. Every tool is read-only.",
         "developerName": "Carquinez Holdings LLC",
-        "capabilities": ["Read"],
+        "capabilities": [
+          "Read"
+        ],
         "websiteURL": "https://pathtoship.com",
         "privacyPolicyURL": "https://pathtoship.com/privacy",
         "termsOfServiceURL": "https://pathtoship.com/terms",
@@ -30,7 +41,8 @@
         ],
         "brandColor": "#E3A94C",
         "composerIcon": "./assets/icon.png",
-        "logo": "./assets/icon.png"
+        "logo": "./assets/icon.png",
+        "category": "Developer Tools"
       }
     }
   }
