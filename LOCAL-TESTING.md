@@ -11,7 +11,7 @@ the account that created it**. It is how a local plugin is wired to an MCP
 connection you already registered in ChatGPT, so it is genuinely useful for
 installing this plugin from a personal marketplace and testing it in a chat.
 
-**Do not ship it in the submitted archive.** A public installer cannot resolve
+**Do not ship it in the submitted archive.** Confirmed 2026-09-25: the two paths differ. A private/local package needs it, because `plugin.json` declares `"apps": "./.app.json"` and the install resolves through it. A **public directory submission uses *With MCP* and submits the server directly**, so the mapping is both redundant and unresolvable there. A public installer cannot resolve
 another account's registration, and the submission portal takes the MCP server
 by URL under *With MCP* and scans it directly — so the mapping is redundant
 there as well as broken.
@@ -55,3 +55,13 @@ zip -qr pathtoship-<version>.zip pathtoship -x '*/.git/*' '*/.app.json'
 
 - **`defaultPrompt` takes at most three entries.** The build drops extras
   silently, so decide which three rather than letting it choose.
+
+### Category
+
+`"Developer Tools"` is an exact value in OpenAI's accepted category list —
+verified 2026-09-25, not inferred. The list also includes `"Security"`, which
+Anthropic's does not; their listing renders PathToShip as `Code`.
+
+`category` takes a single value. **Developer Tools** is the choice here:
+Security is more precise about the critical findings but a narrower shelf, and
+it undersells the six other dimensions the listing describes.
