@@ -1,0 +1,67 @@
+# Local testing (not part of the submitted package)
+
+`@plugin-creator` also generates a `.app.json` and an `apps` pointer to it:
+
+```json
+{ "apps": { "pathtoship": { "id": "asdk_app_...", "required": true } } }
+```
+
+That `asdk_app_...` value is a **developer-mode registration that exists only in
+the account that created it**. It is how a local plugin is wired to an MCP
+connection you already registered in ChatGPT, so it is genuinely useful for
+installing this plugin from a personal marketplace and testing it in a chat.
+
+**Do not ship it in the submitted archive.** Confirmed 2026-09-25: the two paths differ. A private/local package needs it, because `plugin.json` declares `"apps": "./.app.json"` and the install resolves through it. A **public directory submission uses *With MCP* and submits the server directly**, so the mapping is both redundant and unresolvable there. A public installer cannot resolve
+another account's registration, and the submission portal takes the MCP server
+by URL under *With MCP* and scans it directly — so the mapping is redundant
+there as well as broken.
+
+To test locally:
+
+1. Register the server in ChatGPT developer mode at `chatgpt.com/plugins` and
+   copy the `asdk_app_...` id from the URL.
+2. Add `.app.json` with that id, and `"apps": "./.app.json"` inside
+   `extensions.com.openai` in `plugin.json`.
+3. Add a personal marketplace entry at `~/.agents/plugins/marketplace.json`
+   pointing at this folder, restart the ChatGPT desktop app, and install from
+   your local source.
+4. **Remove both before building the submission archive.**
+
+
+## Packaging
+
+`@plugin-creator` nests the package under a folder named after the plugin:
+
+```
+pathtoship-0.2.1.zip
+└── pathtoship/
+    ├── plugin.json
+    ├── .app.json          ← local only, strip before submitting
+    └── skills/<name>/SKILL.md
+```
+
+Match that shape rather than archiving the contents flat — an earlier draft of
+these notes said to put `plugin.json` at the archive root, which is not what the
+sanctioned tool produces.
+
+```bash
+# from the parent of the package folder
+zip -qr pathtoship-<version>.zip pathtoship -x '*/.git/*' '*/.app.json'
+```
+
+`.tar.gz`, `.tgz` and `.zip` are all accepted.
+
+### Known interface limits
+
+- **`defaultPrompt` takes at most three entries.** The build drops extras
+  silently, so decide which three rather than letting it choose.
+
+### Category
+
+`"Developer Tools"` is an exact value in OpenAI's accepted category list —
+verified 2026-09-25, not inferred. The list also includes `"Security"`, which
+Anthropic's does not; their listing renders PathToShip as `Code`.
+
+`category` takes a single value. **Developer Tools** is the choice here:
+Security is more precise about the critical findings but a narrower shelf, and
+it undersells the six other dimensions the listing describes.
