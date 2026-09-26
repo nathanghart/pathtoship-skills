@@ -65,3 +65,8 @@ Anthropic's does not; their listing renders PathToShip as `Code`.
 `category` takes a single value. **Developer Tools** is the choice here:
 Security is more precise about the critical findings but a narrower shelf, and
 it undersells the six other dimensions the listing describes.
+
+## Checking the launch-interview form (ChatGPT only)
+
+After connecting the server in developer mode, run a readiness check, then say "start the launch interview". `prr_interview` should render an inline form headed **Self-reported · not part of the score** with thirteen questions in two groups. Save one answer, then ask "what's the readiness score?" — `get_score` must show a `self_reported` block with that answer and an unchanged score. In Claude the same tool returns text and the questions are asked in chat; that is expected.
+

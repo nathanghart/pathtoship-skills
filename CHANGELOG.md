@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.4.0 — 2026-09-26
+
+`prr_interview`: the launch interview as a tool. Thirteen questions no scanner can answer (eight operational attestations + five provider-console figures), recorded per scan and per account, returned beside the score as `self_reported` and never inside it. In ChatGPT it renders as an inline form (MCP Apps resource). `pathtoship-launch-record` now records attestations through the tool; `pathtoship-readiness` points to it before launch; chat instructions gain a section.
+
+
 ## 0.3.0 — 2026-09-14
 
 `check_connection` tool: instructions now say to call it when `INSTALL_REQUIRED` recurs or the connection is unclear.

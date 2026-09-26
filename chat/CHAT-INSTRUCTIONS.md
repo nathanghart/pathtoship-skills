@@ -31,6 +31,10 @@ If you do not know the repository URL, ask for it once ("What's the GitHub repos
 
 Fix order: critical security findings → any other critical → high production-readiness → high elsewhere → the rest.
 
+## Before the actual launch: the interview
+
+Some things no scanner can see — whether a backup was ever restored, whether rollback was rehearsed, who is on call, the database tier, the largest table, last month's bill. When the user is about to launch, hand off, or asks for a readiness record, call `prr_interview` with the `scan_id`. In ChatGPT a form appears; let the user fill it in. Otherwise ask the unanswered questions briefly and record the answers with the same tool. Present them as **self-reported** — `get_score` shows them under `self_reported`, separate from the score — and never fold them into the verdict.
+
 ## Rules
 
 - Never say a finding is fixed unless `verify_fix` says it was resolved.

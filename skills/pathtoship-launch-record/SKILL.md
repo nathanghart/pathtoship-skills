@@ -16,15 +16,7 @@ A record, not a seal: it states what was checked on which commit and what happen
 ## Procedure
 
 1. Get the facts from the tools — never from memory: `get_score` (score, verdict, ship bar, weakest dimension, consequence), `get_findings` with `severity_min: "medium"` for what remains, and the last `verify_fix` result (resolved / still open / newly introduced). Note the commit SHA the scan ran on (from the repository) and the `permalink`.
-2. Ask the user, briefly, about the items no scanner can see, and record their answers verbatim as self-attested (yes / no / not applicable + one line):
-   - secrets in a real secret store and rotated
-   - backups that have actually been restored once
-   - a rehearsed rollback
-   - monitoring and alerting with someone on call
-   - staging separate from production
-   - health checks and timeouts on outbound calls
-   - rate limiting at the edge
-   - a load test toward the user goal
+2. Run the launch interview through the tool, not from memory: call `prr_interview` with the `scan_id` to get the thirteen questions and what is already answered. In ChatGPT a form appears — let the user fill it in and save. Elsewhere, ask the unanswered questions briefly and record the answers with `prr_interview` (`answers` keyed by question id: `yes` / `no` / `na` for attestations, a number for rows and bills, short text otherwise; a `note` for context). The tool merges partial answers and returns the recorded state — copy attestations from that result, never from the conversation. Everything it holds is **self-reported** and is never part of the score.
 3. For every remaining finding at medium or above, record one of: **fix planned** (by when), **accepted risk** (why, by whom), or **not applicable** (why). Never silently drop a finding.
 4. Write or update `docs/launch-readiness.md` (create the folder if needed). Keep earlier entries; append the new one at the top. Format:
 
@@ -38,7 +30,7 @@ A record, not a seal: it states what was checked on which commit and what happen
 - At 10x users: <consequence line from get_score>
 - Resolved this round: <n> — <titles, one line each>
 - Remaining (medium+): <title> — <fix planned by … | accepted risk: … (name) | n/a: …>
-- Self-attested operations: secrets store ✔/✘ · backups restored ✔/✘ · rollback rehearsed ✔/✘ · monitoring + on-call ✔/✘ · staging ✔/✘ · health checks + timeouts ✔/✘ · edge rate limiting ✔/✘ · load test ✔/✘ (notes: …)
+- Self-reported (from `prr_interview`, <date>): secrets store ✔/✘ · backups restored ✔/✘ · rollback rehearsed ✔/✘ · monitoring + on-call ✔/✘ · staging ✔/✘ · health checks + timeouts ✔/✘ · edge rate limiting ✔/✘ · load test ✔/✘ · tier <…> · largest table <n> rows · last month <$> · autoscale floor <…> · media via <…> (notes: …)
 - Signed off by: <name>, <role>
 ```
 
@@ -46,7 +38,7 @@ A record, not a seal: it states what was checked on which commit and what happen
 
 ## Rules
 
-- Facts come from tool results; attestations come from the user; label which is which.
+- Facts come from tool results; attestations come from the user through `prr_interview`; label which is which. `get_score` shows them under `self_reported` — quote that block, do not blend it into the score line.
 - Never write "resolved" for anything `verify_fix` did not report as resolved.
 - Do not restate scoring rules or thresholds — quote the tool's numbers.
 - Keep it under a page per entry. It is a record people will actually read.
