@@ -20,6 +20,7 @@ Before deploying, opening a public URL, adding logins / payments / uploads, or h
 5. Fix in this order: critical security → other critical → high production-readiness → other high → the rest. Use `get_finding_detail` for the stack-specific `fix` before editing.
 6. Commit and push, then `verify_fix` with the baseline `scan_id`. Report `resolved`, `still_open`, and **check `newly_introduced`** (a moved finding appears there with `same_title_as`) before claiming success. `unchanged: true` means nothing new was pushed.
 7. Repeat until the verdict is not `not_ready`, or the user stops. Be plain when the app is not ready.
+8. Before the actual launch, run `prr_interview` with the `scan_id` for the items no scanner can see (backups restored, rollback rehearsed, on-call, database tier, last month's bill). Its answers are self-reported and sit beside the score, never inside it; the `pathtoship-launch-record` skill turns them into the record.
 
 ## Rules
 

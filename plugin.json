@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "pathtoship",
-  "version": "0.2.1",
+  "version": "0.4.0",
   "description": "Production-readiness checks for AI-built apps: scan the repository your builder syncs to, fix what would break, and verify the fix landed.",
   "author": {
     "name": "Carquinez Holdings LLC",
@@ -18,14 +18,15 @@
     "nextjs",
     "lovable",
     "bolt",
-    "replit"
+    "replit",
+    "launch-checklist"
   ],
   "extensions": {
     "com.openai": {
       "interface": {
         "displayName": "PathToShip",
         "shortDescription": "Find what breaks your AI-built app, before your users do.",
-        "longDescription": "PathToShip reviews the GitHub repository your builder syncs to and tells you what would break if you launched it: API routes that never check who is calling, secrets on the client side of the boundary, Supabase tables created without Row Level Security, dependencies with known exploits, and the scalability and cost patterns that only hurt once you have users. You get a 0-100 readiness score, a ship/not-ready verdict, and the file and line for each finding. Fix it, sync, and verify_fix confirms what actually got resolved. Every tool is read-only.",
+        "longDescription": "PathToShip reviews the GitHub repository your builder syncs to and tells you what would break if you launched it: API routes that never check who is calling, secrets on the client side of the boundary, Supabase tables created without Row Level Security, dependencies with known exploits, and the scalability and cost patterns that only hurt once you have users. You get a 0-100 readiness score, a ship/not-ready verdict, and the file and line for each finding. Fix it, sync, and verify_fix confirms what actually got resolved. Before launch, the launch interview records the things no scanner can see — backups restored, rollback rehearsed, on-call, database tier, last month's bill — as your own self-reported answers, kept separate from the score. Every tool is read-only toward your systems.",
         "developerName": "Carquinez Holdings LLC",
         "capabilities": [
           "Read"
