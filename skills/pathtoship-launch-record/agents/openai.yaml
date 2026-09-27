@@ -1,0 +1,18 @@
+interface:
+  display_name: "Launch readiness record"
+  short_description: "Keep a dated record of what PathToShip checked, what was fixed or accepted, and the launch interview answers."
+  icon_small: "./assets/icon.png"
+  icon_large: "./assets/icon.png"
+  brand_color: "#E3A94C"
+  default_prompt: "Write the launch readiness record for the last PathToShip check."
+
+policy:
+  allow_implicit_invocation: false
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "pathtoship"
+      description: "PathToShip production-readiness checks (start_scan, get_score, get_findings, get_finding_detail, verify_fix, get_scan_status, check_connection, prr_interview)"
+      transport: "streamable_http"
+      url: "https://pathtoship.com/api/mcp"
