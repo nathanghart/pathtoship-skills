@@ -23,13 +23,13 @@ When an app clears the ship bar, the score is worth showing — to users, client
      ```
 
    - Site (an image linked to the report): the same badge URL as the image source, the permalink as the link target, and "PathToShip Score: SCORE/100" as the alt text.
-   - Variants via `?variant=gauge`, `?variant=minimal`, or `?variant=seal` on the badge URL; the default is fine for a README.
-3. Place it near the top of the README (under the title) or in the site footer — where a visitor would look for trust signals. Suggest the commit message `docs: add PathToShip readiness badge`; the user or their builder commits it.
+   - Variants via `?variant=gauge` or `?variant=minimal` on the badge URL; the default is fine for a README.
+3. Show the user the change. Place it near the top of the README (under the title) or in the site footer — where a visitor would look for trust signals. Suggest the commit message `docs: add PathToShip readiness badge`; the user or their builder commits it.
 4. After later changes, the badge keeps pointing at _that_ scan. When the user runs a new scan that is also `ready`, offer to update the `scan_id` so the badge reflects the current code. If a later scan drops below the bar, tell the user the badge is stale and offer to remove it rather than leave a misleading one.
 
-## Certified seal
+## What the badge says
 
-PathToShip can issue a certified seal for scans at or above the certification threshold; the user requests it from the report page (the `permalink`), under "Certify". Use the plain score badge in the meantime.
+The badge shows the PathToShip score of one automated scan of one commit. It is not a security certification, an audit, or a compliance attestation, and you should not describe it as one.
 
 ## Rules
 
