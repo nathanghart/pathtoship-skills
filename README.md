@@ -15,6 +15,16 @@ The MCP server gives your assistant the *ability* to run a check. These files gi
 | `rules/CLAUDE.md.snippet` | Claude Code (`CLAUDE.md`), Codex (`AGENTS.md`) | Append to the file |
 | `rules/pathtoship.mdc` | Cursor | Copy into `.cursor/rules/` |
 
+## Install as a Claude Code plugin
+
+All three skills install together as one plugin:
+
+```
+/plugin install pathtoship --marketplace nathanghart/pathtoship-skills
+```
+
+On older Claude Code versions, add the marketplace first with `/plugin marketplace add nathanghart/pathtoship-skills`, then run `/plugin install pathtoship@pathtoship-skills`. The plugin carries the skills only; connect the server as below.
+
 ## Connecting the server
 
 **Claude.ai** (Pro/Max): Settings → Connectors → Add custom connector → URL `https://pathtoship.com/api/mcp`.

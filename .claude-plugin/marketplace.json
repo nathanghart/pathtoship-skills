@@ -1,0 +1,16 @@
+{
+  "name": "pathtoship-skills",
+  "description": "PathToShip's production-readiness skills for Claude Code.",
+  "owner": {
+    "name": "Carquinez Holdings LLC"
+  },
+  "plugins": [
+    {
+      "name": "pathtoship",
+      "source": "./",
+      "description": "Check an AI-built app before launch: when to scan, how to fix in the right order, how to verify the fix, plus a launch record and a readiness badge.",
+      "category": "security",
+      "keywords": ["security", "readiness", "supabase", "lovable", "bolt", "vibe-coding"]
+    }
+  ]
+}

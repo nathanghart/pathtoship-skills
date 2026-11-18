@@ -1,0 +1,23 @@
+{
+  "name": "pathtoship",
+  "version": "0.4.0",
+  "description": "Production-readiness checks for AI-built apps: scan the repository your builder syncs to, fix what would break, and verify the fix landed.",
+  "author": {
+    "name": "Carquinez Holdings LLC",
+    "url": "https://pathtoship.com"
+  },
+  "homepage": "https://pathtoship.com/mcp",
+  "repository": "https://github.com/nathanghart/pathtoship-skills",
+  "license": "MIT",
+  "keywords": [
+    "readiness",
+    "security",
+    "code-review",
+    "supabase",
+    "nextjs",
+    "lovable",
+    "bolt",
+    "replit",
+    "launch-checklist"
+  ]
+}

@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+Claude Code plugin packaging: `.claude-plugin/plugin.json` and a one-plugin marketplace (`.claude-plugin/marketplace.json`), so the three skills install with `/plugin install pathtoship --marketplace nathanghart/pathtoship-skills`. Skills unchanged.
+
 ## 0.4.0 — 2026-09-26
 
 `prr_interview`: the launch interview as a tool. Thirteen questions no scanner can answer (eight operational attestations + five provider-console figures), recorded per scan and per account, returned beside the score as `self_reported` and never inside it. In ChatGPT it renders as an inline form (MCP Apps resource). `pathtoship-launch-record` now records attestations through the tool; `pathtoship-readiness` points to it before launch; chat instructions gain a section.
